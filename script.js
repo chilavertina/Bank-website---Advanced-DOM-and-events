@@ -38,7 +38,7 @@ console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
 
-document.querySelector('.header');
+const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 console.log(allSections);
 
@@ -47,3 +47,26 @@ const allButtons = document.getElementsByTagName('button');
 console.log(allButtons);
 
 console.log(document.getElementsByClassName('btn'));
+
+// CREATING AND INSERTING ELEMENTS
+// .isnertAdjacentHTML
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+// message.textContent = 'We use cookies for improved functionality and analytics.'; // ovo ubacuje tekst
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+// header.prepend(message); // postavlja element kao first child (vrh)
+header.append(message); // postavlja element kao last child (dno)
+// header.append(message.cloneNode(true)); // kopira element i postavlja ga istovremeno kao last child
+
+// header.before(message); // postavlja element pre header-a
+// header.after(message); // postavlja element posle header-a
+
+//delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+    // message.parentElement.removeChild(message); // stari nacin uklanjanja elemenata
+  });
