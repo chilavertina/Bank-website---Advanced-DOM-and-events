@@ -110,3 +110,9 @@ console.log(logo.getAttribute('link'));
 
 // data attributes
 console.log(logo.dataset.versionNumber);
+
+// CLASSES
+logo.classList.add('klasa');
+logo.classList.remove('klasa');
+logo.classList.toggle('klasa');
+logo.classList.contains('klasa');
