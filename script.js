@@ -86,3 +86,27 @@ message.style.height =
   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
 document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// ATTRIBUTES
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+
+// nestandardizovani atributi
+console.log(logo.mleko); //ovo nece raditi (undefined)
+console.log(logo.getAttribute('mleko')); // ovo hoce (uros)
+//ubacivanje nestandardizovanog atributa
+logo.setAttribute('company', 'Bankist');
+
+console.log(logo.src); //absolute source
+console.log(logo.getAttribute('src')); //relative source
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(logo.getAttribute('link'));
+
+// data attributes
+console.log(logo.dataset.versionNumber);
