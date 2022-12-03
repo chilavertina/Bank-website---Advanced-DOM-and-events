@@ -70,3 +70,19 @@ document
     message.remove();
     // message.parentElement.removeChild(message); // stari nacin uklanjanja elemenata
   });
+
+// STYLES
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+console.log(message.style.color); // ne prikazuje se nista u konzoli zato sto color nije inline style u okviru html-a
+console.log(message.style.backgroundColor); // prikazuje se rgb(55, 56, 61) zato sto je backgroundColor inline
+
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+// getComputedStyle omogucava da prikaze/odabere style koji nije definisan u html ili css
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
