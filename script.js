@@ -32,7 +32,7 @@ document.addEventListener('keydown', function (e) {
 
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
-
+/*
 // SELECTING ELEMENTS
 console.log(document.documentElement);
 console.log(document.head);
@@ -116,3 +116,27 @@ logo.classList.add('klasa');
 logo.classList.remove('klasa');
 logo.classList.toggle('klasa');
 logo.classList.contains('klasa');
+*/
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect(); // dobijanje koordinata pozicije section1
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect()); // koordinate pozicije button u odnosu na granice ekrana
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset); // koordinate trenutne pozicije skrolovanja
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  ); // dimenzije viewport-a
+
+  // Scrolling
+  window.scrollTo(
+    s1coords.left + window.pageXOffset,
+    s1coords.top + window.pageYOffset
+  ); // skakanje na section1
+});
