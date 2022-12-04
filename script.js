@@ -157,6 +157,8 @@ const alertH1 = function (e) {
   alert('addEventListener: Great! You are reading the heading :D');
 };
 
+/*
+// DODAVANJE EVENT LISTENER-A
 //dodavanje eventlistener-a elementu
 h1.addEventListener('mouseenter', alertH1);
 
@@ -166,3 +168,37 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 8000);
 // h1.onmouseenter = function (e) {
 //   alert('onmouseenter: Great! You are reading the heading :D');
 // };
+*/
+
+// EVENT PROPAGATION BUBBLLING AND CAPTURING
+// BUBBLLING
+// rgb(255, 255, 255)
+const randomInteger = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min); // formula za dobijanje random broja
+const randomColor = () =>
+  `rgb(${randomInteger(0, 255)}, ${randomInteger(0, 255)}, ${randomInteger(
+    0,
+    255
+  )})`;
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  console.log('LINK');
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget); //e.target je onaj gde se klik desio, e.currentTarget je na sta se klik odnosi
+  console.log(e.currentTarget === this);
+
+  // Stop propagation
+  // e.stopPropagation();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  console.log('LINK');
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget);
+});
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  console.log('LINK');
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget);
+});
