@@ -192,13 +192,16 @@ document.querySelector('.nav__link').addEventListener('click', function (e) {
 });
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-  console.log('LINK');
   this.style.backgroundColor = randomColor();
-  console.log('LINK', e.target, e.currentTarget);
+  console.log('CONTAINER', e.target, e.currentTarget);
 });
 
-document.querySelector('.nav').addEventListener('click', function (e) {
-  console.log('LINK');
-  this.style.backgroundColor = randomColor();
-  console.log('LINK', e.target, e.currentTarget);
-});
+document.querySelector('.nav').addEventListener(
+  'click',
+  function (e) {
+    this.style.backgroundColor = randomColor();
+    console.log('NAV', e.target, e.currentTarget);
+  }
+  //true // da bismo pokrenuli capturing, eventListener-u dodajemo treci parametar (true). onda se prikazuje prvo NAV (posto je odatle krenuo event)
+  // a onda zatim krece bubblling sa svojim event-ovima
+);
