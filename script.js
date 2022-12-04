@@ -1,12 +1,14 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+
+///////////////////////////////////////
+// Modal window
 
 const openModal = function (e) {
   e.preventDefault();
@@ -29,6 +31,42 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+// Button scrolling
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect(); // dobijanje koordinata pozicije section1
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect()); // koordinate pozicije button u odnosu na granice ekrana
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset); // koordinate trenutne pozicije skrolovanja
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  ); // dimenzije viewport-a
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // ); // skakanje na section1
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
+});
+
+//////////////////////////////////////////////
+
+//PAGE NAVIGATION
 
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
@@ -117,6 +155,7 @@ logo.classList.remove('klasa');
 logo.classList.toggle('klasa');
 logo.classList.contains('klasa');
 */
+/*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
@@ -133,19 +172,19 @@ btnScrollTo.addEventListener('click', function (e) {
     document.documentElement.clientHeight,
     document.documentElement.clientWidth
   ); // dimenzije viewport-a
+*/
+// Scrolling
+// window.scrollTo(
+//   s1coords.left + window.pageXOffset,
+//   s1coords.top + window.pageYOffset
+// ); // skakanje na section1
 
-  // Scrolling
-  // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset
-  // ); // skakanje na section1
-
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth',
-  // });
-
+// window.scrollTo({
+//   left: s1coords.left + window.pageXOffset,
+//   top: s1coords.top + window.pageYOffset,
+//   behavior: 'smooth',
+// });
+/*
   section1.scrollIntoView({
     behavior: 'smooth',
   });
@@ -156,7 +195,7 @@ const h1 = document.querySelector('h1');
 const alertH1 = function (e) {
   alert('addEventListener: Great! You are reading the heading :D');
 };
-
+*/
 /*
 // DODAVANJE EVENT LISTENER-A
 //dodavanje eventlistener-a elementu
@@ -169,7 +208,7 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 8000);
 //   alert('onmouseenter: Great! You are reading the heading :D');
 // };
 */
-
+/*
 // EVENT PROPAGATION BUBBLLING AND CAPTURING
 // BUBBLLING
 // rgb(255, 255, 255)
@@ -205,3 +244,4 @@ document.querySelector('.nav').addEventListener(
   //true // da bismo pokrenuli capturing, eventListener-u dodajemo treci parametar (true). onda se prikazuje prvo NAV (posto je odatle krenuo event)
   // a onda zatim krece bubblling sa svojim event-ovima
 );
+*/
