@@ -284,3 +284,7 @@ h1.lastElementChild.style.color = 'orangered';
 // Going upwards: parent
 console.log(h1.parentNode);
 console.log(h1.parentElement);
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)'; // selektuje najblizi parent header element
+
+h1.closest('h1').style.background = 'var(--gradient-primary)'; // selektuje sam sebe
