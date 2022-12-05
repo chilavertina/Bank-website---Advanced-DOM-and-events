@@ -296,3 +296,7 @@ console.log(h1.previousSibling); // izbor prethodnog node-a
 console.log(h1.nextSibling); // izbor narednog node-a
 
 console.log(h1.parentElement.children); // izbor svih sibling-a
+
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = 'scale(0.5)';
+});
