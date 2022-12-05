@@ -288,3 +288,11 @@ console.log(h1.parentElement);
 h1.closest('.header').style.background = 'var(--gradient-secondary)'; // selektuje najblizi parent header element
 
 h1.closest('h1').style.background = 'var(--gradient-primary)'; // selektuje sam sebe
+
+console.log(h1.previousElementSibling); // izbor prethodnog sibling elementa
+console.log(h1.nextElementSibling); // izbor narednog sibling elementa
+
+console.log(h1.previousSibling); // izbor prethodnog node-a
+console.log(h1.nextSibling); // izbor narednog node-a
+
+console.log(h1.parentElement.children); // izbor svih sibling-a
