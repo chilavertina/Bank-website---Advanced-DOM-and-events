@@ -144,11 +144,31 @@ nav.addEventListener('mouseover', handleHover.bind(0.5)); // bind se odnosi na t
 nav.addEventListener('mouseout', handleHover.bind(1));
 
 // Sticky navigation
+/*
 const initialCoords = section1.getBoundingClientRect();
 window.addEventListener('scroll', function () {
   if (this.window.scrollY > initialCoords.top) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
 });
+*/
+//kada god se section1 ukrsti sa obsOptions(root i treshold) pozvace se funkcija u obsCallback
+// obsOptions(root i treshold) predstavlja minimalni procenat section1 koji je vidljiv na ekranu u trenutku skrolovanja
+
+const obsCallback = function (entries, observer) {
+  //entries predstavlja treshold podatke
+  entries.forEach(entry => {
+    console.log(entry);
+  });
+};
+
+const obsOptions = {
+  root: null,
+  treshold: [0, 0.2],
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(section1);
+
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
 /*
