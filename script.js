@@ -171,6 +171,7 @@ const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(section1);
 */
 const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries; // ovo je isto kao da je napisano const entry = entries[0];
@@ -182,7 +183,7 @@ const stickyNav = function (entries) {
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: '-90px', //90px je velicina navigation-a koji zelimo da se pojavi u okviru sticky klase
+  rootMargin: `-${navHeight}px`, //90px je velicina navigation-a koji zelimo da se pojavi u okviru sticky klase
 });
 headerObserver.observe(header);
 ////////////////////////////////////////////////
