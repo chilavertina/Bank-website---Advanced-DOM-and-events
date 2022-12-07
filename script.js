@@ -151,6 +151,7 @@ window.addEventListener('scroll', function () {
   else nav.classList.remove('sticky');
 });
 */
+/*
 //kada god se section1 ukrsti sa obsOptions(root i treshold) pozvace se funkcija u obsCallback
 // obsOptions(root i treshold) predstavlja minimalni procenat section1 koji je vidljiv na ekranu u trenutku skrolovanja
 
@@ -168,7 +169,21 @@ const obsOptions = {
 
 const observer = new IntersectionObserver(obsCallback, obsOptions);
 observer.observe(section1);
+*/
+const header = document.querySelector('.header');
 
+const stickyNav = function (entries) {
+  const [entry] = entries; // ovo je isto kao da je napisano const entry = entries[0];
+
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+});
+headerObserver.observe(header);
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
 /*
