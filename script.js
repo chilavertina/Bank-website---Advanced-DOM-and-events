@@ -182,6 +182,7 @@ const stickyNav = function (entries) {
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
+  rootMargin: '-90px', //90px je velicina navigation-a koji zelimo da se pojavi u okviru sticky klase
 });
 headerObserver.observe(header);
 ////////////////////////////////////////////////
