@@ -133,13 +133,13 @@ const handleHover = function (e) {
 
     // fade efekat
     siblings.forEach(el => {
-      if (el !== link) el.style.opacity = this;
+      if (el !== link) el.style.opacity = this; // this se odnosi na vrednost opacity-a u ovom slucaju
     });
     logo.style.opacity = this;
   }
 };
 
-nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseover', handleHover.bind(0.5)); // bind se odnosi na this // this je jednak current.target-u
 
 nav.addEventListener('mouseout', handleHover.bind(1));
 
