@@ -241,25 +241,23 @@ const btnRight = document.querySelector('.slider__btn--right');
 let curSlide = 0;
 const maxSlide = slides.length;
 
-slides.forEach(
-  (slide, index) => (slide.style.transform = `translateX(${100 * index}%)`)
-);
-// 0%, 100%, 200%, 300%
+const goToSlide = function (slide) {
+  slides.forEach(
+    (slide, index) =>
+      (slide.style.transform = `translateX(${100 * (index - slide)}%)`)
+  );
+};
+goToSlide(0);
 
 // Next slide
-btnRight.addEventListener('click', function () {
+const nextSlide = function () {
   if (curSlide === maxSlide - 1) {
     curSlide = 0;
   } else {
     curSlide++;
   }
-
-  slides.forEach(
-    (slide, index) =>
-      (slide.style.transform = `translateX(${100 * (index - curSlide)}%)`)
-  );
-});
-// -100%, 0%, 100%, 200%
+};
+btnRight.addEventListener('click', nextSlide);
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
 /*
