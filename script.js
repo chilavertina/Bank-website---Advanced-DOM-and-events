@@ -243,8 +243,7 @@ const maxSlide = slides.length;
 
 const goToSlide = function (slide) {
   slides.forEach(
-    (slide, index) =>
-      (slide.style.transform = `translateX(${100 * (index - slide)}%)`)
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
   );
 };
 goToSlide(0);
@@ -257,7 +256,19 @@ const nextSlide = function () {
     curSlide++;
   }
 };
+
+// Previous slide
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide;
+  } else {
+    curSlide--;
+  }
+  goToSlide(curSlide);
+};
+
 btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
 /*
