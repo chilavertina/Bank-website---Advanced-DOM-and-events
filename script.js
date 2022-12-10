@@ -255,12 +255,13 @@ const nextSlide = function () {
   } else {
     curSlide++;
   }
+  goToSlide(curSlide);
 };
 
 // Previous slide
 const prevSlide = function () {
   if (curSlide === 0) {
-    curSlide = maxSlide;
+    curSlide = maxSlide - 1;
   } else {
     curSlide--;
   }
@@ -269,6 +270,11 @@ const prevSlide = function () {
 
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////
 /*
